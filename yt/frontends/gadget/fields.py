@@ -87,7 +87,9 @@ class GadgetFieldInfo(SPHFieldInfo):
                     mu = data.get_field_parameter("mean_molecular_weight")
                 else:
                     # Assume zero ionization
-                    mu = 4.0 / (3.0 * x_H + 1.0)
+                    #mu = 4.0 / (3.0 * x_H + 1.0)
+                    # Assume full ionization
+                    mu = 4.0 / (5.0 * x_H + 3.0)
                 ret = data[ptype, "InternalEnergy"]*(gamma-1)*mu*mp/kb
                 return ret.in_units(self.ds.unit_system["temperature"])
 
